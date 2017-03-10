@@ -32,7 +32,9 @@ class KiteListVC: UITableViewController {
     }
     
     func flyKite(kiteURL: String) {
-        print(kiteURL)
+        let kiteVC = PlayerVC()
+        kiteVC.url = kiteURL
+        present(kiteVC, animated: true, completion: nil)
     }
     
     func connectToKite() {

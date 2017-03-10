@@ -15,7 +15,7 @@ import Zip
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    let url:URLConvertible = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
+    var url:URLConvertible = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
     var kiteDocument: KiteDocument?
     var unzipDirectory: URL?
     
@@ -24,9 +24,15 @@ class PlayerVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(exitPrototype))
+        tap.numberOfTouchesRequired = 3
+        tap.numberOfTapsRequired = 2
+        
+        view.addGestureRecognizer(tap)
+        
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentsURL.appendingPathComponent("heart.kite.zip")
+            let fileURL = documentsURL.appendingPathComponent("prototype.zip")
             
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
@@ -45,7 +51,8 @@ class PlayerVC: UIViewController {
                     //
                     
                     guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: self.kiteDocument!) else {
-                        fatalError("Could not create Kite Presentation View Controller")
+                        self.unableToLoad()
+                        return
                     }
                     
                     // Hold on to a strong reference to the view controller
@@ -62,6 +69,7 @@ class PlayerVC: UIViewController {
                 }
                 catch {
                     print("Something went wrong")
+                    self.unableToLoad()
                 }
                 
                 
@@ -71,7 +79,17 @@ class PlayerVC: UIViewController {
         
         
     }
-    @IBAction func exitPrototype(_ sender: Any) {
+    
+    func exitPrototype() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func unableToLoad() {
+        let alertController = UIAlertController(title: "Error", message: "Unable to fly that kite. You sure that link is correct?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true) { success in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
