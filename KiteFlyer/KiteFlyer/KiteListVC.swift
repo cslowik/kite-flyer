@@ -15,12 +15,20 @@ import KiteKit
 class KiteListVC: UITableViewController {
     
     var kiteViewController: KitePresentationViewController?
+    let runner = KiteRunner.runner
+    var bookmarks: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
+        bookmarks = runner.bookmarkedURLs
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        bookmarks = runner.bookmarkedURLs
+        tableView.reloadData()
     }
 
     @IBAction func kiteTapped(_ sender: Any) {
@@ -73,19 +81,20 @@ class KiteListVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return bookmarks.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell", for: indexPath)
 
         // Configure the cell...
-
+        cell.textLabel?.text = bookmarks[indexPath.row]
+        cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.65)
+        
+        cell.backgroundColor = UIColor.clear
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

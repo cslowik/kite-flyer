@@ -15,16 +15,17 @@ import Zip
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    var url:URLConvertible = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
+    var url = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
     var kiteDocument: KiteDocument?
     var unzipDirectory: URL?
+    let runner = KiteRunner.runner
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(exitPrototype))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showMenu))
         tap.numberOfTouchesRequired = 3
         tap.numberOfTapsRequired = 2
         
@@ -55,6 +56,8 @@ class PlayerVC: UIViewController {
                         return
                     }
                     
+                    self.runner.bookmarkedURLs.append(self.url)
+                    
                     // Hold on to a strong reference to the view controller
                     //
                     self.kiteViewController = kitePresentationViewController
@@ -73,14 +76,27 @@ class PlayerVC: UIViewController {
                 
                 
             }
+            
         }
-        
-        
-        
+    }
+    
+    func showMenu() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let exitAction = UIAlertAction(title: "Exit Prototype", style: .destructive) { _ in self.exitPrototype() }
+        let restartAction = UIAlertAction(title: "Restart Prototype", style: .default) { _ in self.startOver() }
+        alertController.addAction(cancelAction)
+        alertController.addAction(restartAction)
+        alertController.addAction(exitAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func exitPrototype() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func startOver() {
+        kiteViewController?.startPresenting()
     }
     
     func unableToLoad() {
