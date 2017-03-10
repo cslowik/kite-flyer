@@ -68,7 +68,6 @@ class PlayerVC: UIViewController {
                     self.kiteViewController?.startPresenting()
                 }
                 catch {
-                    print("Something went wrong")
                     self.unableToLoad()
                 }
                 
@@ -86,10 +85,10 @@ class PlayerVC: UIViewController {
     
     func unableToLoad() {
         let alertController = UIAlertController(title: "Error", message: "Unable to fly that kite. You sure that link is correct?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true) { success in
-            self.dismiss(animated: true, completion: nil)
+        let okAction = UIAlertAction(title: "Darn!", style: .default) { _ in
+            self.exitPrototype()
         }
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
 }
