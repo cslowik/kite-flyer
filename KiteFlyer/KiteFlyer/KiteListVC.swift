@@ -25,45 +25,13 @@ class KiteListVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    @IBAction func loadTest(_ sender: Any) {
-        loadPrototype()
-    }
 
-    func loadPrototype() {
-        // Get a URL to the embedded Kite document 'Heart.kite'
-        //
-        guard let documentURL = Bundle.main.url(forResource: "Heart", withExtension: "kite") else {
-            fatalError("Bundled kite document not found!")
-        }
-        
-        // Create a KiteDocument object to load the file
-        //
-        let kiteDocument = KiteDocument(fileURL: documentURL)
-        
-        // Create a KitePresentationViewController to present the view
-        //
-        guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: kiteDocument) else {
-            fatalError("Could not create Kite Presentation View Controller")
-        }
-        
-        // Hold on to a strong reference to the view controller
-        //
-        self.kiteViewController = kitePresentationViewController
-        
-        // Add the KitePresentationView to the view hierarchy
-        //
-        self.view.addSubview(kitePresentationViewController.view)
-        
-        // Start the document playback
-        //
-        self.kiteViewController?.startPresenting()
-    }
+    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
