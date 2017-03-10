@@ -13,6 +13,7 @@ import KiteKit
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
+    let url = "https://www.dropbox.com/sh/h3fprayk950vczd/AACCWOuwHge44pvP4gl62PWca?dl=0"
     
     override func viewDidLoad()
     {

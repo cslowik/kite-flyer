@@ -17,6 +17,7 @@
 		83CF81361E7200A300372687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF81341E7200A300372687 /* LaunchScreen.storyboard */; };
 		83F9AA271E721F30002F3BD5 /* KiteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F9AA261E721F30002F3BD5 /* KiteListVC.swift */; };
 		83F9AA291E7221F3002F3BD5 /* UIColor-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F9AA281E7221F3002F3BD5 /* UIColor-ext.swift */; };
+		ACF74CD3C3BB859F983B4559 /* Pods_KiteFlyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08555593D6D432DF0578BCA /* Pods_KiteFlyer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +46,9 @@
 		83CF81371E7200A300372687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83F9AA261E721F30002F3BD5 /* KiteListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiteListVC.swift; sourceTree = "<group>"; };
 		83F9AA281E7221F3002F3BD5 /* UIColor-ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-ext.swift"; sourceTree = "<group>"; };
+		9C6C0873FEDBA660D3BA0DDE /* Pods-KiteFlyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiteFlyer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KiteFlyer/Pods-KiteFlyer.release.xcconfig"; sourceTree = "<group>"; };
+		C08555593D6D432DF0578BCA /* Pods_KiteFlyer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KiteFlyer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE093C490D613F442DB5DAE3 /* Pods-KiteFlyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiteFlyer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KiteFlyer/Pods-KiteFlyer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,18 +57,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				8326F24C1E72325C00EF0343 /* KiteKit.framework in Frameworks */,
+				ACF74CD3C3BB859F983B4559 /* Pods_KiteFlyer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55543C70CD6510BDEE930F20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C08555593D6D432DF0578BCA /* Pods_KiteFlyer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		83CF811F1E7200A300372687 = {
 			isa = PBXGroup;
 			children = (
 				8326F24B1E72325C00EF0343 /* KiteKit.framework */,
 				83CF812A1E7200A300372687 /* KiteFlyer */,
 				83CF81291E7200A300372687 /* Products */,
+				A68D2B48357E9B3750B0658C /* Pods */,
+				55543C70CD6510BDEE930F20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +107,15 @@
 			path = KiteFlyer;
 			sourceTree = "<group>";
 		};
+		A68D2B48357E9B3750B0658C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE093C490D613F442DB5DAE3 /* Pods-KiteFlyer.debug.xcconfig */,
+				9C6C0873FEDBA660D3BA0DDE /* Pods-KiteFlyer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,10 +123,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83CF813A1E7200A300372687 /* Build configuration list for PBXNativeTarget "KiteFlyer" */;
 			buildPhases = (
+				1DB3EC7A26C4719088D81BAF /* [CP] Check Pods Manifest.lock */,
 				83CF81241E7200A300372687 /* Sources */,
 				83CF81251E7200A300372687 /* Frameworks */,
 				83CF81261E7200A300372687 /* Resources */,
 				8326F24E1E72325C00EF0343 /* Embed Frameworks */,
+				336F6C8F22D481E31BB4E7F0 /* [CP] Embed Pods Frameworks */,
+				AA0B4F6090A00041731704DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +188,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DB3EC7A26C4719088D81BAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		336F6C8F22D481E31BB4E7F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KiteFlyer/Pods-KiteFlyer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA0B4F6090A00041731704DF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KiteFlyer/Pods-KiteFlyer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		83CF81241E7200A300372687 /* Sources */ = {
@@ -289,6 +364,7 @@
 		};
 		83CF813B1E7200A300372687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE093C490D613F442DB5DAE3 /* Pods-KiteFlyer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8U4R9Q4J3X;
@@ -306,6 +382,7 @@
 		};
 		83CF813C1E7200A300372687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6C0873FEDBA660D3BA0DDE /* Pods-KiteFlyer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8U4R9Q4J3X;

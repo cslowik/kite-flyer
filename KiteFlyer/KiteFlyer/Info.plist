@@ -10,7 +10,11 @@
 			<key>CFBundleTypeIconFiles</key>
 			<array/>
 			<key>CFBundleTypeName</key>
-			<string>Kite Prototype</string>
+			<string>Kite Compositor Prototype</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>online.slowik.kitePrototype</string>
@@ -47,11 +51,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UTImportedTypeDeclarations</key>
+	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
 			<key>UTTypeDescription</key>
-			<string>Kite Prototype</string>
+			<string>Kite Compositor Prototype</string>
 			<key>UTTypeIdentifier</key>
 			<string>online.slowik.kitePrototype</string>
 			<key>UTTypeTagSpecification</key>
@@ -59,7 +63,6 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>kite</string>
-					<string>KITE</string>
 				</array>
 			</dict>
 		</dict>
