@@ -22,6 +22,7 @@ class PlayerVC: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.black
         
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

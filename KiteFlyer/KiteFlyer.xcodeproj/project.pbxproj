@@ -10,7 +10,6 @@
 		8326F24C1E72325C00EF0343 /* KiteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8326F24B1E72325C00EF0343 /* KiteKit.framework */; };
 		8326F24D1E72325C00EF0343 /* KiteKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8326F24B1E72325C00EF0343 /* KiteKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8326F2501E72331B00EF0343 /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326F24F1E72331B00EF0343 /* PlayerVC.swift */; };
-		8326F2541E723FD600EF0343 /* heart.kite in Resources */ = {isa = PBXBuildFile; fileRef = 8326F2531E723FD600EF0343 /* heart.kite */; };
 		83CF812C1E7200A300372687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CF812B1E7200A300372687 /* AppDelegate.swift */; };
 		83CF81311E7200A300372687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF812F1E7200A300372687 /* Main.storyboard */; };
 		83CF81331E7200A300372687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CF81321E7200A300372687 /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		8326F24B1E72325C00EF0343 /* KiteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiteKit.framework; sourceTree = "<group>"; };
 		8326F24F1E72331B00EF0343 /* PlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
-		8326F2531E723FD600EF0343 /* heart.kite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = heart.kite; sourceTree = "<group>"; };
 		83CF81281E7200A300372687 /* KiteFlyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiteFlyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CF812B1E7200A300372687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CF81301E7200A300372687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		83CF812A1E7200A300372687 /* KiteFlyer */ = {
 			isa = PBXGroup;
 			children = (
-				8326F2531E723FD600EF0343 /* heart.kite */,
 				83CF812B1E7200A300372687 /* AppDelegate.swift */,
 				83CF812F1E7200A300372687 /* Main.storyboard */,
 				8326F24F1E72331B00EF0343 /* PlayerVC.swift */,
@@ -181,7 +178,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83CF81361E7200A300372687 /* LaunchScreen.storyboard in Resources */,
-				8326F2541E723FD600EF0343 /* heart.kite in Resources */,
 				83CF81331E7200A300372687 /* Assets.xcassets in Resources */,
 				83CF81311E7200A300372687 /* Main.storyboard in Resources */,
 			);
