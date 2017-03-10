@@ -56,8 +56,7 @@ class PlayerVC: UIViewController {
                         return
                     }
                     
-                    self.runner.bookmarkedURLs.append(self.url)
-                    
+                    self.runner.bookmarks.append(["name":self.name, "url":self.url])
                     // Hold on to a strong reference to the view controller
                     //
                     self.kiteViewController = kitePresentationViewController

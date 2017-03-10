@@ -10,15 +10,16 @@ class KiteRunner: NSObject {
     static let runner = KiteRunner()
     
     var bookmarkFileURL: URL?
+    var bookmarkURLSFileURL: URL?
     var saveDirectory: URL?
     
-    var bookmarkedURLs: [String] {
+    var bookmarks: [[String:String]] {
         get {
             let savedData = NSKeyedUnarchiver.unarchiveObject(withFile: (bookmarkFileURL?.path)!)
             guard savedData != nil else {
-                return []
+                return [[:]]
             }
-            return savedData as! [String]
+            return savedData as! [[String:String]]
         }
         set (newData) {
             NSKeyedArchiver.archiveRootObject(newData, toFile: (bookmarkFileURL?.path)!)

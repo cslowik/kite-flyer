@@ -16,18 +16,18 @@ class KiteListVC: UITableViewController {
     
     var kiteViewController: KitePresentationViewController?
     let runner = KiteRunner.runner
-    var bookmarks: [String] = []
+    var bookmarks: [[String:String]] = [[:]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
-        bookmarks = runner.bookmarkedURLs
+        bookmarks = runner.bookmarks
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        bookmarks = runner.bookmarkedURLs
+        bookmarks = runner.bookmarks
         tableView.reloadData()
     }
 
@@ -99,7 +99,7 @@ class KiteListVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = bookmarks[indexPath.row]
+        cell.textLabel?.text = bookmarks[indexPath.row]["name"]
         cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.85)
         
         
@@ -120,8 +120,8 @@ class KiteListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            runner.bookmarkedURLs.remove(at: indexPath.row)
-            bookmarks = runner.bookmarkedURLs
+            runner.bookmarks.remove(at: indexPath.row)
+            bookmarks = runner.bookmarks
             tableView.reloadData()
         }
     }
