@@ -1,0 +1,682 @@
+{
+  "bounds" : "{{0, 0}, {375, 667}}",
+  "position" : "{0, 0}",
+  "className" : "JRShapeContainerLayer",
+  "sublayers" : [
+    {
+      "uuid" : "986B7CE2-A4C8-4F33-803A-40FBED528A97",
+      "borderColor" : {
+        "components" : {
+          "r" : 0,
+          "b" : 0,
+          "g" : 0,
+          "a" : 1
+        },
+        "colorSpace" : "kCGColorSpaceSRGB"
+      },
+      "masksToBounds" : true,
+      "name" : "heart",
+      "position" : "{0, 0}",
+      "backgroundColor" : {
+        "components" : {
+          "r" : 1,
+          "b" : 1,
+          "g" : 1,
+          "a" : 1
+        },
+        "colorSpace" : "kCGColorSpaceSRGB"
+      },
+      "className" : "CALayer",
+      "shadowColor" : {
+        "components" : {
+          "r" : 0,
+          "b" : 0,
+          "g" : 0,
+          "a" : 1
+        },
+        "colorSpace" : "kCGColorSpaceSRGB"
+      },
+      "sublayers" : [
+        {
+          "uuid" : "AFF1BEB4-E90D-4B5A-A4A2-E35C242EC939",
+          "borderColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "name" : "bg",
+          "position" : "{0, 0}",
+          "lineWidth" : 0,
+          "className" : "CAShapeLayer",
+          "strokeColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 0
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "path" : "M0.000,0.000 L375.000,0.000 L375.000,667.000 L0.000,667.000 L0.000,0.000 Z M0.000,0.000",
+          "fillRule" : "even-odd",
+          "shadowColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "fillColor" : {
+            "components" : {
+              "r" : 0.8684700225576342,
+              "b" : 0.907312925170068,
+              "g" : 0.8911283824355225,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "anchorPoint" : "{0, 0}",
+          "duration" : 3600,
+          "bounds" : "{{0, 0}, {375, 667}}",
+          "contentsGravity" : "center"
+        },
+        {
+          "uuid" : "031F573F-B942-4C4A-B43F-09832D921E4E",
+          "borderColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "name" : "pulse",
+          "animationsContainer" : {
+            "animations" : [
+              {
+                "fromValue" : {
+                  "type" : "Double",
+                  "value" : 1
+                },
+                "beginTime" : 1.00000000005096e-06,
+                "className" : "CABasicAnimation",
+                "keyPath" : "transform.scale",
+                "fillMode" : "forwards",
+                "uuid" : "29B60D3C-977F-4AFC-96CF-5496788CF16E",
+                "duration" : 0.5,
+                "timingFunction" : {
+                  "c2x" : 0.1599464,
+                  "c2y" : 0.9956257,
+                  "className" : "CAMediaTimingFunction",
+                  "c1x" : 0.1119,
+                  "c1y" : 0.5289579
+                },
+                "playsAtBeginTime" : false,
+                "removedOnCompletion" : false,
+                "toValue" : {
+                  "type" : "Double",
+                  "value" : 20
+                }
+              },
+              {
+                "fromValue" : {
+                  "type" : "Double",
+                  "value" : 6
+                },
+                "beginTime" : 0.300704125,
+                "className" : "CABasicAnimation",
+                "keyPath" : "lineWidth",
+                "fillMode" : "forwards",
+                "uuid" : "C3D811BB-4C33-4AF6-9259-1938201C7152",
+                "duration" : 0.2908203125,
+                "timingFunction" : {
+                  "c2x" : 0.58,
+                  "c2y" : 1,
+                  "className" : "CAMediaTimingFunction",
+                  "c1x" : 0.03162125,
+                  "c1y" : 0.6965554
+                },
+                "playsAtBeginTime" : false,
+                "removedOnCompletion" : false,
+                "toValue" : {
+                  "type" : "Double",
+                  "value" : 0
+                }
+              }
+            ]
+          },
+          "position" : "{187.5, 333.5}",
+          "lineWidth" : 6,
+          "className" : "CAShapeLayer",
+          "strokeColor" : {
+            "components" : {
+              "r" : 1,
+              "b" : 1,
+              "g" : 1,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "path" : "M1.500,3.000 C2.328,3.000 3.000,2.328 3.000,1.500 C3.000,0.672 2.328,0.000 1.500,0.000 C0.672,0.000 0.000,0.672 0.000,1.500 C0.000,2.328 0.672,3.000 1.500,3.000 Z M1.500,3.000",
+          "fillRule" : "even-odd",
+          "shadowColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "fillColor" : {
+            "components" : {
+              "r" : 0.816203773021698,
+              "b" : 0.1066960170865059,
+              "g" : 0.007513228338211775,
+              "a" : 0
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "duration" : 3600,
+          "bounds" : "{{0, 0}, {3, 3}}",
+          "contentsGravity" : "center"
+        },
+        {
+          "name" : "lines",
+          "borderColor" : {
+            "components" : {
+              "r" : 0.78,
+              "b" : 0.29371875,
+              "g" : 0.1248,
+              "a" : 0
+            },
+            "colorSpace" : "kCGColorSpaceGenericRGB"
+          },
+          "uuid" : "9C70B359-7BA1-4DBB-92ED-6068291FB4AE",
+          "position" : "{88.5, 234.5}",
+          "backgroundColor" : {
+            "components" : {
+              "r" : 0.58,
+              "b" : 0.21840625,
+              "g" : 0.09280000000000001,
+              "a" : 0
+            },
+            "colorSpace" : "kCGColorSpaceGenericRGB"
+          },
+          "className" : "CALayer",
+          "shadowOffset" : "{0, 1}",
+          "borderWidth" : 1,
+          "shadowColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "sublayers" : [
+            {
+              "animationsContainer" : {
+                "animations" : [
+                  {
+                    "fromValue" : {
+                      "type" : "Double",
+                      "value" : 1
+                    },
+                    "beginTime" : 1e-06,
+                    "className" : "CABasicAnimation",
+                    "keyPath" : "transform.scale",
+                    "fillMode" : "forwards",
+                    "uuid" : "625D41D8-D75C-4420-87C4-0A8355C85859",
+                    "duration" : 0.746953125,
+                    "timingFunction" : {
+                      "c2x" : -0.005778668,
+                      "c2y" : 0.9994996,
+                      "className" : "CAMediaTimingFunction",
+                      "c1x" : 1.0009,
+                      "c1y" : 0.0002259814
+                    },
+                    "playsAtBeginTime" : false,
+                    "removedOnCompletion" : false,
+                    "toValue" : {
+                      "type" : "Double",
+                      "value" : 65
+                    }
+                  },
+                  {
+                    "fromValue" : {
+                      "type" : "Double",
+                      "value" : 6
+                    },
+                    "beginTime" : 1e-06,
+                    "className" : "CABasicAnimation",
+                    "keyPath" : "lineWidth",
+                    "fillMode" : "forwards",
+                    "uuid" : "CC961297-AA6E-4AE7-B0A8-EAECEB76E917",
+                    "duration" : 0.746953125,
+                    "timingFunction" : {
+                      "c2x" : 0.009797908,
+                      "c2y" : 0.9929623,
+                      "className" : "CAMediaTimingFunction",
+                      "c1x" : 0.9935,
+                      "c1y" : 0.001339747
+                    },
+                    "playsAtBeginTime" : false,
+                    "removedOnCompletion" : false,
+                    "toValue" : {
+                      "type" : "Double",
+                      "value" : 0
+                    }
+                  }
+                ]
+              },
+              "uuid" : "E520F74D-B74D-42C9-A57E-91A909E51673",
+              "borderColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "name" : "lines",
+              "position" : "{99, 99}",
+              "lineWidth" : 0,
+              "className" : "CAShapeLayer",
+              "strokeColor" : {
+                "components" : {
+                  "r" : 0.8156862745098039,
+                  "b" : 0.1058823529411765,
+                  "g" : 0.007843137254901961,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "path" : "M1.500,3.000 C2.328,3.000 3.000,2.328 3.000,1.500 C3.000,0.672 2.328,0.000 1.500,0.000 C0.672,0.000 0.000,0.672 0.000,1.500 C0.000,2.328 0.672,3.000 1.500,3.000 Z M1.500,3.000",
+              "transform" : "65.000000, 0.000000, 0.000000, 0.000000, 0.000000, 65.000000, 0.000000, 0.000000, 0.000000, 0.000000, 65.000000, 0.000000, 0.000000, 0.000000, 0.000000, 1.000000",
+              "fillRule" : "even-odd",
+              "shadowColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "duration" : 3600,
+              "fillColor" : {
+                "components" : {
+                  "r" : 0.816203773021698,
+                  "b" : 0.1066960170865059,
+                  "g" : 0.007513228338211775,
+                  "a" : 0
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "bounds" : "{{0, 0}, {3, 3}}",
+              "contentsGravity" : "center"
+            }
+          ],
+          "fillMode" : "forwards",
+          "mask" : {
+            "uuid" : "9B927282-FC65-4DC8-8206-FCEC4FF2B9F9",
+            "borderColor" : {
+              "components" : {
+                "r" : 0,
+                "b" : 0,
+                "g" : 0,
+                "a" : 1
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "name" : "Star",
+            "position" : "{0, 0}",
+            "lineWidth" : 0,
+            "className" : "CAShapeLayer",
+            "strokeColor" : {
+              "components" : {
+                "r" : 0,
+                "b" : 0,
+                "g" : 0,
+                "a" : 0
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "path" : "M98.500,108.350 L49.250,183.803 L89.970,103.425 L0.000,98.500 L89.970,93.575 L49.250,13.196 L98.500,88.650 L147.750,13.196 L107.030,93.575 L197.000,98.500 L107.030,103.425 L147.750,183.803 L98.500,108.350 Z M98.500,108.350",
+            "fillRule" : "even-odd",
+            "shadowColor" : {
+              "components" : {
+                "r" : 0,
+                "b" : 0,
+                "g" : 0,
+                "a" : 1
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "fillColor" : {
+              "components" : {
+                "r" : 0.8156862745098039,
+                "b" : 0.1058823529411762,
+                "g" : 0.007843137254901933,
+                "a" : 0.85
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "anchorPoint" : "{0, 0}",
+            "duration" : 3600,
+            "bounds" : "{{0, 0}, {197, 197}}",
+            "contentsGravity" : "center"
+          },
+          "anchorPoint" : "{0, 0}",
+          "duration" : 3600,
+          "bounds" : "{{0, 0}, {197, 197}}",
+          "contentsGravity" : "center"
+        },
+        {
+          "name" : "heartButton",
+          "borderColor" : {
+            "components" : {
+              "r" : 0.8800000000000001,
+              "b" : 0.5956500000000001,
+              "g" : 0.1056,
+              "a" : 0
+            },
+            "colorSpace" : "kCGColorSpaceGenericRGB"
+          },
+          "uuid" : "D96AF480-73E5-4753-B7DF-C8A8BBC33CEE",
+          "position" : "{187.5, 332}",
+          "backgroundColor" : {
+            "components" : {
+              "r" : 0.68,
+              "b" : 0.460275,
+              "g" : 0.08160000000000001,
+              "a" : 0
+            },
+            "colorSpace" : "kCGColorSpaceGenericRGB"
+          },
+          "className" : "CALayer",
+          "shadowOffset" : "{0, 1}",
+          "borderWidth" : 1,
+          "shadowColor" : {
+            "components" : {
+              "r" : 0,
+              "b" : 0,
+              "g" : 0,
+              "a" : 1
+            },
+            "colorSpace" : "kCGColorSpaceSRGB"
+          },
+          "sublayers" : [
+            {
+              "uuid" : "8FF0C855-B655-4BF0-A7F7-FF4E1A850E1F",
+              "borderColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "name" : "heart",
+              "position" : "{2, 6}",
+              "lineWidth" : 0,
+              "className" : "CAShapeLayer",
+              "strokeColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 0
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "path" : "M23.076,11.118 C26.045,8.148 25.615,2.794 21.526,0.692 C19.813,-0.189 17.737,-0.225 15.979,0.563 C14.624,1.171 13.691,2.088 13.083,3.145 C12.833,3.579 12.208,3.584 11.959,3.150 C11.391,2.163 10.542,1.297 9.329,0.690 C7.226,-0.361 4.639,-0.210 2.727,1.159 C-0.602,3.541 -0.883,8.203 1.884,10.971 C4.565,14.099 7.442,17.012 11.144,20.409 C11.924,21.118 13.118,21.135 13.901,20.416 C16.842,17.738 19.963,14.681 23.076,11.118 L23.076,11.118 Z M23.076,11.118",
+              "fillRule" : "even-odd",
+              "shadowColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "fillColor" : {
+                "components" : {
+                  "r" : 1,
+                  "b" : 1,
+                  "g" : 1,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "anchorPoint" : "{0, 0}",
+              "duration" : 3600,
+              "bounds" : "{{0, 0}, {25, 20.948103530973068}}",
+              "contentsGravity" : "center"
+            },
+            {
+              "animationsContainer" : {
+                "animations" : [
+                  {
+                    "fromValue" : {
+                      "type" : "Double",
+                      "value" : 0
+                    },
+                    "beginTime" : 1e-06,
+                    "className" : "CABasicAnimation",
+                    "keyPath" : "transform.scale",
+                    "fillMode" : "forwards",
+                    "uuid" : "C579249C-D6CE-4ADB-BD99-6551D22AEB38",
+                    "duration" : 0.5,
+                    "timingFunction" : {
+                      "c2x" : 0.25,
+                      "localizedName" : "Default",
+                      "c2y" : 1,
+                      "className" : "CAMediaTimingFunction",
+                      "c1x" : 0.25,
+                      "c1y" : 0.1
+                    },
+                    "playsAtBeginTime" : false,
+                    "removedOnCompletion" : false,
+                    "toValue" : {
+                      "type" : "Double",
+                      "value" : 1.5
+                    }
+                  }
+                ]
+              },
+              "uuid" : "153A4543-0201-4C00-B770-AFF3A622081A",
+              "borderColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "name" : "heartFill",
+              "position" : "{14.5, 15.5}",
+              "lineWidth" : 0,
+              "className" : "CAShapeLayer",
+              "strokeColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 0
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "path" : "M14.500,29.000 C22.508,29.000 29.000,22.508 29.000,14.500 C29.000,6.492 22.508,0.000 14.500,0.000 C6.492,0.000 0.000,6.492 0.000,14.500 C0.000,22.508 6.492,29.000 14.500,29.000 Z M14.500,29.000",
+              "transform" : "0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 1.000000",
+              "fillRule" : "even-odd",
+              "shadowColor" : {
+                "components" : {
+                  "r" : 0,
+                  "b" : 0,
+                  "g" : 0,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "duration" : 3600,
+              "fillColor" : {
+                "components" : {
+                  "r" : 0.816203773021698,
+                  "b" : 0.1066960170865059,
+                  "g" : 0.007513228338211775,
+                  "a" : 1
+                },
+                "colorSpace" : "kCGColorSpaceSRGB"
+              },
+              "bounds" : "{{0, 0}, {29, 29}}",
+              "contentsGravity" : "center"
+            }
+          ],
+          "fillMode" : "forwards",
+          "mask" : {
+            "uuid" : "199B4620-A66D-44A8-9F77-BB5E37020B5A",
+            "borderColor" : {
+              "components" : {
+                "r" : 0,
+                "b" : 0,
+                "g" : 0,
+                "a" : 1
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "name" : "heartMask",
+            "position" : "{2, 6}",
+            "lineWidth" : 0,
+            "className" : "CAShapeLayer",
+            "strokeColor" : {
+              "components" : {
+                "r" : 0,
+                "b" : 0,
+                "g" : 0,
+                "a" : 0
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "path" : "M23.076,11.118 C26.045,8.148 25.615,2.794 21.526,0.692 C19.813,-0.189 17.737,-0.225 15.979,0.563 C14.624,1.171 13.691,2.088 13.083,3.145 C12.833,3.579 12.208,3.584 11.959,3.150 C11.391,2.163 10.542,1.297 9.329,0.690 C7.226,-0.361 4.639,-0.210 2.727,1.159 C-0.602,3.541 -0.883,8.203 1.884,10.971 C4.565,14.099 7.442,17.012 11.144,20.409 C11.924,21.118 13.118,21.135 13.901,20.416 C16.842,17.738 19.963,14.681 23.076,11.118 L23.076,11.118 Z M23.076,11.118",
+            "fillRule" : "even-odd",
+            "shadowColor" : {
+              "components" : {
+                "r" : 0,
+                "b" : 0,
+                "g" : 0,
+                "a" : 1
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "fillColor" : {
+              "components" : {
+                "r" : 1,
+                "b" : 1,
+                "g" : 1,
+                "a" : 1
+              },
+              "colorSpace" : "kCGColorSpaceSRGB"
+            },
+            "anchorPoint" : "{0, 0}",
+            "duration" : 3600,
+            "bounds" : "{{0, 0}, {25, 20.948103530973068}}",
+            "contentsGravity" : "center"
+          },
+          "duration" : 3600,
+          "bounds" : "{{0, 0}, {29, 29}}",
+          "contentsGravity" : "center"
+        }
+      ],
+      "actionsContainer" : {
+        "actions" : [
+          {
+            "uuid" : "8B5B173E-5117-44EC-AC9E-C5E28CD59E08",
+            "className" : "JRAction",
+            "actionResponses" : [
+              {
+                "className" : "JRPlayAnimationsActionResponse",
+                "type" : "JRActionResponseTypePlayAnimations",
+                "animationIdentifiers" : [
+
+                ],
+                "uuid" : "1FBFB5E4-7FB6-4768-A511-1CBAEE515E6C"
+              }
+            ],
+            "actionEvent" : {
+              "className" : "JRNoActionEvent",
+              "type" : "JRActionEventTypeNoEvent",
+              "uuid" : "5C44AE70-E71D-40FB-8429-C56ED572AF4C"
+            },
+            "name" : "toggle"
+          },
+          {
+            "uuid" : "F08C6D69-1680-411A-B775-988388E19133",
+            "className" : "JRAction",
+            "actionResponses" : [
+              {
+                "className" : "JRPlayAnimationsActionResponse",
+                "type" : "JRActionResponseTypePlayAnimations",
+                "animationIdentifiers" : [
+                  "29B60D3C-977F-4AFC-96CF-5496788CF16E",
+                  "C3D811BB-4C33-4AF6-9259-1938201C7152",
+                  "625D41D8-D75C-4420-87C4-0A8355C85859",
+                  "CC961297-AA6E-4AE7-B0A8-EAECEB76E917",
+                  "C579249C-D6CE-4ADB-BD99-6551D22AEB38"
+                ],
+                "uuid" : "1F000B9A-6665-4D8B-8464-E5A0D9975274"
+              }
+            ],
+            "actionEvent" : {
+              "clickCount" : 0,
+              "eventMask" : 6,
+              "className" : "JRMouseClickedActionEvent",
+              "type" : "JRActionEventTypeMouseClicked",
+              "uuid" : "FC2CEE84-8ACC-4FE5-A2F3-395B94A67F23"
+            },
+            "name" : "switchON"
+          },
+          {
+            "uuid" : "AD5D1242-FC2C-4C96-90FB-3DCF852F7029",
+            "className" : "JRAction",
+            "actionResponses" : [
+              {
+                "className" : "JRPlayAnimationsActionResponse",
+                "type" : "JRActionResponseTypePlayAnimations",
+                "animationIdentifiers" : [
+
+                ],
+                "uuid" : "DF2065FA-EFBE-4DD3-958D-71BFF42B061A"
+              }
+            ],
+            "actionEvent" : {
+              "className" : "JRNoActionEvent",
+              "type" : "JRActionEventTypeNoEvent",
+              "uuid" : "32D1AC17-17D9-4DDB-B507-93CFD6041E89"
+            },
+            "name" : "switchOFF"
+          }
+        ]
+      },
+      "anchorPoint" : "{0, 0}",
+      "duration" : 3600,
+      "bounds" : "{{0, 0}, {375, 667}}",
+      "contentsGravity" : "center"
+    }
+  ],
+  "uuid" : "F90DDEC6-AF79-4F6A-9C59-F56B0152EE73",
+  "name" : "Background Layer"
+}

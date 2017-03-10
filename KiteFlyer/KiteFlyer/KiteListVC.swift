@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
+import JavaScriptCore
+import MobileCoreServices
+import KiteKit
 
 class KiteListVC: UITableViewController {
+    
+    var kiteViewController: KitePresentationViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +25,38 @@ class KiteListVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    @IBAction func loadTest(_ sender: Any) {
+        loadPrototype()
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func loadPrototype() {
+        // Get a URL to the embedded Kite document 'Heart.kite'
+        //
+        guard let documentURL = Bundle.main.url(forResource: "Heart", withExtension: "kite") else {
+            fatalError("Bundled kite document not found!")
+        }
+        
+        // Create a KiteDocument object to load the file
+        //
+        let kiteDocument = KiteDocument(fileURL: documentURL)
+        
+        // Create a KitePresentationViewController to present the view
+        //
+        guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: kiteDocument) else {
+            fatalError("Could not create Kite Presentation View Controller")
+        }
+        
+        // Hold on to a strong reference to the view controller
+        //
+        self.kiteViewController = kitePresentationViewController
+        
+        // Add the KitePresentationView to the view hierarchy
+        //
+        self.view.addSubview(kitePresentationViewController.view)
+        
+        // Start the document playback
+        //
+        self.kiteViewController?.startPresenting()
     }
 
     // MARK: - Table view data source

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E183b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sLh-NW-rqS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sLh-NW-rqS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,6 +35,9 @@
                     <navigationItem key="navigationItem" title="Kite Prototypes" id="aN6-hV-cEU">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="ayv-cL-ayZ">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="wd3-cg-FWM" kind="presentation" id="dwy-ze-z4K"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -42,12 +45,39 @@
             </objects>
             <point key="canvasLocation" x="1380" y="110.19490254872565"/>
         </scene>
+        <!--PlayerVC-->
+        <scene sceneID="a9Z-B7-FkS">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aCz-LS-7lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="wd3-cg-FWM" customClass="PlayerVC" customModule="KiteFlyer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NqP-LH-hF1"/>
+                        <viewControllerLayoutGuide type="bottom" id="JdZ-Xo-Fd0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sRv-8k-tM9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BA0-Td-vPg" appends="YES" id="wPU-ex-dwt"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="3" id="BA0-Td-vPg">
+                    <connections>
+                        <action selector="exitPrototype:" destination="wd3-cg-FWM" id="kCk-A1-l2I"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2188" y="110"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="W95-r1-BTJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sLh-NW-rqS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="gcn-Zb-5tn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="gcn-Zb-5tn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.83529411764705885" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
