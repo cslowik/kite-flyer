@@ -15,7 +15,7 @@ import Zip
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    let url:URLConvertible = "https://www.dropbox.com/sh/h3fprayk950vczd/AACCWOuwHge44pvP4gl62PWca?dl=1"
+    let url:URLConvertible = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
     var kiteDocument: KiteDocument?
     var unzipDirectory: URL?
     
@@ -31,7 +31,7 @@ class PlayerVC: UIViewController {
         }
         
         Alamofire.download(url, to: destination).response { response in
-            print(response.response)
+            //print(response.response)
             
             if response.error == nil {
                 
