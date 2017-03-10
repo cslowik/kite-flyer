@@ -17,6 +17,7 @@ class PlayerVC: UIViewController {
     var kiteViewController: KitePresentationViewController?
     var url = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
     var name = ""
+    var isNew = false
     var filename = "temp"
     var kiteDocument: KiteDocument?
     var unzipDirectory: URL?
@@ -56,7 +57,9 @@ class PlayerVC: UIViewController {
                         return
                     }
                     kitePresentationViewController.view.alpha = 0
-                    self.runner.bookmarks.append(["name":self.name, "url":self.url])
+                    if self.isNew {
+                        self.runner.bookmarks.append(["name":self.name, "url":self.url])
+                    }
                     // Hold on to a strong reference to the view controller
                     //
                     self.kiteViewController = kitePresentationViewController

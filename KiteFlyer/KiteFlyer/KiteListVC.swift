@@ -39,10 +39,11 @@ class KiteListVC: UITableViewController {
         addTeaser()
     }
     
-    func flyKite(_ kiteName: String, kiteURL: String) {
+    func flyKite(_ kiteName: String, kiteURL: String, saveBookmark: Bool) {
         let kiteVC = PlayerVC()
         kiteVC.url = kiteURL
         kiteVC.name = kiteName
+        kiteVC.isNew = saveBookmark
         present(kiteVC, animated: true, completion: nil)
     }
     
@@ -62,7 +63,7 @@ class KiteListVC: UITableViewController {
             guard let kiteName = theName.text else {
                 return
             }
-            self.flyKite(kiteName, kiteURL: kiteURL)
+            self.flyKite(kiteName, kiteURL: kiteURL, saveBookmark: true)
         }
         alertController.addTextField { (textField) in
             textField.placeholder = "Name of Kite"
@@ -97,6 +98,14 @@ class KiteListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        guard let kiteName = runner.bookmarks[indexPath.row]["name"] else {
+            return
+        }
+        guard let kiteURL = runner.bookmarks[indexPath.row]["url"] else {
+            return
+        }
+        
+        flyKite(kiteName, kiteURL: kiteURL, saveBookmark: false)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
