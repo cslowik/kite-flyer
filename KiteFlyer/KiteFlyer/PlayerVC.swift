@@ -26,7 +26,7 @@ class PlayerVC: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.greenBG
+        view.backgroundColor = UIColor.blueBG
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(showMenu))
         tap.numberOfTouchesRequired = 3
