@@ -7,5 +7,6 @@ target 'KiteFlyer' do
 
   # Pods for KiteFlyer
   pod 'Alamofire', '~> 4.4'
-
+  pod 'Zip', '~> 0.6'
+  
 end
