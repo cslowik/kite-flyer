@@ -16,6 +16,8 @@ class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
     var url = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
+    var name = ""
+    var filename = "temp"
     var kiteDocument: KiteDocument?
     var unzipDirectory: URL?
     let runner = KiteRunner.runner
@@ -33,14 +35,12 @@ class PlayerVC: UIViewController {
         
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentsURL.appendingPathComponent("prototype.zip")
+            let fileURL = documentsURL.appendingPathComponent("\(self.filename).zip")
             
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
         Alamofire.download(url, to: destination).response { response in
-            //print(response.response)
-            
             if response.error == nil {
                 
                 do {

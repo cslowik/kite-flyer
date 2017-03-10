@@ -39,26 +39,37 @@ class KiteListVC: UITableViewController {
         addTeaser()
     }
     
-    func flyKite(kiteURL: String) {
+    func flyKite(_ kiteName: String, kiteURL: String) {
         let kiteVC = PlayerVC()
         kiteVC.url = kiteURL
+        kiteVC.name = kiteName
         present(kiteVC, animated: true, completion: nil)
     }
     
     func connectToKite() {
-        let alertController = UIAlertController(title: "Fly a Kite", message: "Enter a link to a zip file or dropbox folder", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Fly a Kite", message: "Name your prototype and enter a link to a zip file or dropbox folder", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let flyAction = UIAlertAction(title: "Fly!", style: .default) { (action) in
-            guard let theKite = alertController.textFields?[0] else {
+            guard let theKite = alertController.textFields?[1] else {
+                return
+            }
+            guard let theName = alertController.textFields?[0] else {
                 return
             }
             guard let kiteURL = theKite.text else {
                 return
             }
-            self.flyKite(kiteURL: kiteURL)
+            guard let kiteName = theName.text else {
+                return
+            }
+            self.flyKite(kiteName, kiteURL: kiteURL)
         }
         alertController.addTextField { (textField) in
-            textField.placeholder = "Link to kite"
+            textField.placeholder = "Name of Kite"
+            textField.keyboardType = .URL
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Link to zip file"
             textField.keyboardType = .URL
         }
         alertController.addAction(cancelAction)
