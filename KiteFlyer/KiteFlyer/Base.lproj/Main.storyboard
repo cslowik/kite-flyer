@@ -20,7 +20,7 @@
                         <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.1058823529" green="0.80000000000000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmarkCell" rowHeight="80" id="Ojd-Ee-cSK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="bookmarkCell" rowHeight="80" id="Ojd-Ee-cSK">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ojd-Ee-cSK" id="fzI-Ap-idr">
@@ -56,7 +56,7 @@
         <!--PlayerVC-->
         <scene sceneID="a9Z-B7-FkS">
             <objects>
-                <viewController id="wd3-cg-FWM" customClass="PlayerVC" customModule="KiteFlyer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="wd3-cg-FWM" customClass="PlayerVC" customModule="KiteFlyer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NqP-LH-hF1"/>
                         <viewControllerLayoutGuide type="bottom" id="JdZ-Xo-Fd0"/>
@@ -78,7 +78,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2188" y="110"/>
+            <point key="canvasLocation" x="2182" y="110"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W95-r1-BTJ">

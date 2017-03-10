@@ -25,7 +25,7 @@ class PlayerVC: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.greenBG
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(showMenu))
         tap.numberOfTouchesRequired = 3
@@ -55,7 +55,7 @@ class PlayerVC: UIViewController {
                         self.unableToLoad()
                         return
                     }
-                    
+                    kitePresentationViewController.view.alpha = 0
                     self.runner.bookmarks.append(["name":self.name, "url":self.url])
                     // Hold on to a strong reference to the view controller
                     //
@@ -64,6 +64,9 @@ class PlayerVC: UIViewController {
                     // Add the KitePresentationView to the view hierarchy
                     //
                     self.view.addSubview(kitePresentationViewController.view)
+                    UIView.animate(withDuration: 0.5, animations: { 
+                        kitePresentationViewController.view.alpha = 1
+                    })
                     
                     // Start the document playback
                     //
