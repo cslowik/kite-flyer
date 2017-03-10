@@ -89,11 +89,19 @@ class KiteListVC: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = bookmarks[indexPath.row]
-        cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.65)
+        cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.85)
         
-        cell.backgroundColor = UIColor.clear
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.tableCellOverlay
+        cell.textLabel?.backgroundColor = UIColor.clear
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.clear
+        }
     }
 
     /*

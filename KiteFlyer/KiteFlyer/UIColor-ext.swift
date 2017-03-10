@@ -19,13 +19,13 @@ extension UIColor {
         static let greenNavBG = UIColor(red:0.192, green:0.890, blue:0.906, alpha:1.000)
         
         // overlays
-        static let tableCellOverlay = UIColor(red:0.161, green:0.176, blue:0.192, alpha:0.050)
+        static let tableCellOverlay = UIColor(red:0.161, green:0.176, blue:0.192, alpha:0.030)
     }
     
     public class var white: UIColor { return Cache.white }
     public class var black: UIColor { return Cache.black }
     public class var greenBG: UIColor { return Cache.greenBG }
     public class var greenNavBG: UIColor { return Cache.greenNavBG }
-    public class var tableCellOverlan: UIColor { return Cache.tableCellOverlay }
+    public class var tableCellOverlay: UIColor { return Cache.tableCellOverlay }
     
 }
