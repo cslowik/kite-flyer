@@ -3,4 +3,4 @@
 
 KiteFlyer is a simple viewer app to load Kite prototypes on iOS devices.
 
-Perform a double three-finger tap to return to the prototype list.
+Perform a double three-finger tap to open the viewer menu during playback.
