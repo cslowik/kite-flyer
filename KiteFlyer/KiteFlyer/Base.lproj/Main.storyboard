@@ -35,9 +35,15 @@
                     <navigationItem key="navigationItem" title="Kite Prototypes" id="aN6-hV-cEU">
                         <barButtonItem key="leftBarButtonItem" image="plus" id="57f-Lj-fpv">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addTapped:" destination="tTV-Yz-fyQ" id="gxc-AW-ciE"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="kite" id="bzx-zG-tlu">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="kiteTapped:" destination="tTV-Yz-fyQ" id="qdG-Nj-GJS"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -94,7 +100,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="kite" width="21" height="20"/>
-        <image name="plus" width="25" height="25"/>
+        <image name="kite" width="24" height="21"/>
+        <image name="plus" width="17" height="17"/>
     </resources>
 </document>

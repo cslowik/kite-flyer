@@ -19,13 +19,49 @@ class KiteListVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
     }
 
+    @IBAction func kiteTapped(_ sender: Any) {
+        connectToKite()
+    }
+    
+    @IBAction func addTapped(_ sender: Any) {
+        addTeaser()
+    }
+    
+    func flyKite(kiteURL: String) {
+        print(kiteURL)
+    }
+    
+    func connectToKite() {
+        let alertController = UIAlertController(title: "Fly a Kite", message: "Enter a link to a zip file or dropbox folder", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let flyAction = UIAlertAction(title: "Fly!", style: .default) { (action) in
+            guard let theKite = alertController.textFields?[0] else {
+                return
+            }
+            guard let kiteURL = theKite.text else {
+                return
+            }
+            self.flyKite(kiteURL: kiteURL)
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Link to kite"
+            textField.keyboardType = .URL
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(flyAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func addTeaser() {
+        let alertController = UIAlertController(title: "Coming Soon", message: "Kite saving is not currently available.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
 
     // MARK: - Table view data source
