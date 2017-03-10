@@ -10,43 +10,60 @@ import JavaScriptCore
 import MobileCoreServices
 import KiteKit
 import Alamofire
+import Zip
 
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    let url:URLConvertible = "https://www.dropbox.com/sh/h3fprayk950vczd/AACCWOuwHge44pvP4gl62PWca?dl=0"
+    let url:URLConvertible = "https://www.dropbox.com/sh/h3fprayk950vczd/AACCWOuwHge44pvP4gl62PWca?dl=1"
     var kiteDocument: KiteDocument?
+    var unzipDirectory: URL?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        let location = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
-
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent("heart.kite.zip")
+            
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
         
-        Alamofire.download(url, to: location).response { response in
-            print(response)
+        Alamofire.download(url, to: destination).response { response in
+            print(response.response)
             
             if response.error == nil {
-                self.kiteDocument = KiteDocument(fileURL: response.destinationURL!)
-                // Create a KitePresentationViewController to present the view
-                //
                 
-                guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: self.kiteDocument!) else {
-                    fatalError("Could not create Kite Presentation View Controller")
+                do {
+                    let filePath = response.destinationURL!
+                    self.unzipDirectory = try Zip.quickUnzipFile(filePath) // Unzip
+                    
+                    self.kiteDocument = KiteDocument(fileURL: self.unzipDirectory!)
+                    // Create a KitePresentationViewController to present the view
+                    //
+                    
+                    guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: self.kiteDocument!) else {
+                        fatalError("Could not create Kite Presentation View Controller")
+                    }
+                    
+                    // Hold on to a strong reference to the view controller
+                    //
+                    self.kiteViewController = kitePresentationViewController
+                    
+                    // Add the KitePresentationView to the view hierarchy
+                    //
+                    self.view.addSubview(kitePresentationViewController.view)
+                    
+                    // Start the document playback
+                    //
+                    self.kiteViewController?.startPresenting()
+                }
+                catch {
+                    print("Something went wrong")
                 }
                 
-                // Hold on to a strong reference to the view controller
-                //
-                self.kiteViewController = kitePresentationViewController
                 
-                // Add the KitePresentationView to the view hierarchy
-                //
-                self.view.addSubview(kitePresentationViewController.view)
-                
-                // Start the document playback
-                //
-                self.kiteViewController?.startPresenting()
             }
         }
         
