@@ -11,6 +11,7 @@ import MobileCoreServices
 import KiteKit
 import Alamofire
 import Zip
+import SnapKit
 
 class PlayerVC: UIViewController {
     
@@ -49,8 +50,8 @@ class PlayerVC: UIViewController {
                     self.unzipDirectory = try Zip.quickUnzipFile(filePath) // Unzip
                     
                     self.kiteDocument = KiteDocument(fileURL: self.unzipDirectory!)
+                    
                     // Create a KitePresentationViewController to present the view
-                    //
                     
                     guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: self.kiteDocument!) else {
                         self.unableToLoad()
