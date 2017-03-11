@@ -45,6 +45,7 @@ class KiteListVC: UITableViewController {
         kiteVC.url = kiteURL
         kiteVC.name = kiteName
         kiteVC.isNew = saveBookmark
+        kiteVC.modalTransitionStyle = .crossDissolve
         present(kiteVC, animated: true, completion: nil)
     }
     
@@ -69,7 +70,9 @@ class KiteListVC: UITableViewController {
             }
             self.flyKite(theName, kiteURL: theURL, saveBookmark: true)
         }))
-        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: nil))
+        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () in
+            alertVC.gravityDismissAnimation = true
+        }))
         
         
         present(alertVC, animated: true, completion: nil)
