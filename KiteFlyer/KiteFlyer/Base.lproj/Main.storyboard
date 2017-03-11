@@ -73,7 +73,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sLh-NW-rqS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="gcn-Zb-5tn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="gcn-Zb-5tn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.3529411764705882" green="0.63137254901960782" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>

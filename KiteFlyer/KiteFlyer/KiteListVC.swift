@@ -51,7 +51,7 @@ class KiteListVC: UITableViewController {
     
     func connectToKite() {
         
-        let alertVC = PMAlertController(title: "Fly a Kite", description: "Name your kite prototype, and provide the link to its location (zip file or dropbox folder)", image: nil, style: .alert)
+        let alertVC = PMAlertController(title: "Fly a Kite", description: "Name your kite prototype, and provide the link to its location (zip file or dropbox folder)", image: #imageLiteral(resourceName: "kiteIllustration-large"), style: .alert)
         alertVC.gravityDismissAnimation = false
         
         alertVC.addTextField { (textField) in
