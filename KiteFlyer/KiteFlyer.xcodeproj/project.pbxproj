@@ -10,6 +10,8 @@
 		8326F24C1E72325C00EF0343 /* KiteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8326F24B1E72325C00EF0343 /* KiteKit.framework */; };
 		8326F24D1E72325C00EF0343 /* KiteKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8326F24B1E72325C00EF0343 /* KiteKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8326F2501E72331B00EF0343 /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326F24F1E72331B00EF0343 /* PlayerVC.swift */; };
+		8348A9B81E73B8620009B313 /* Graphik-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8348A9B61E73B8620009B313 /* Graphik-Medium.otf */; };
+		8348A9B91E73B8620009B313 /* Graphik-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8348A9B71E73B8620009B313 /* Graphik-Regular.otf */; };
 		835084911E729E3800B7A350 /* KiteRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835084901E729E3800B7A350 /* KiteRunner.swift */; };
 		83CF812C1E7200A300372687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CF812B1E7200A300372687 /* AppDelegate.swift */; };
 		83CF81311E7200A300372687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF812F1E7200A300372687 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		8326F24B1E72325C00EF0343 /* KiteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiteKit.framework; sourceTree = "<group>"; };
 		8326F24F1E72331B00EF0343 /* PlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
+		8348A9B61E73B8620009B313 /* Graphik-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Medium.otf"; sourceTree = "<group>"; };
+		8348A9B71E73B8620009B313 /* Graphik-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Regular.otf"; sourceTree = "<group>"; };
 		835084901E729E3800B7A350 /* KiteRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiteRunner.swift; sourceTree = "<group>"; };
 		83CF81281E7200A300372687 /* KiteFlyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiteFlyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CF812B1E7200A300372687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8348A9B51E73B8620009B313 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8348A9B61E73B8620009B313 /* Graphik-Medium.otf */,
+				8348A9B71E73B8620009B313 /* Graphik-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		83CF811F1E7200A300372687 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,7 @@
 		83CF812A1E7200A300372687 /* KiteFlyer */ = {
 			isa = PBXGroup;
 			children = (
+				8348A9B51E73B8620009B313 /* Fonts */,
 				83CF812B1E7200A300372687 /* AppDelegate.swift */,
 				83CF812F1E7200A300372687 /* Main.storyboard */,
 				8326F24F1E72331B00EF0343 /* PlayerVC.swift */,
@@ -153,7 +167,7 @@
 					83CF81271E7200A300372687 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8U4R9Q4J3X;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -181,7 +195,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				83CF81361E7200A300372687 /* LaunchScreen.storyboard in Resources */,
+				8348A9B81E73B8620009B313 /* Graphik-Medium.otf in Resources */,
 				83CF81331E7200A300372687 /* Assets.xcassets in Resources */,
+				8348A9B91E73B8620009B313 /* Graphik-Regular.otf in Resources */,
 				83CF81311E7200A300372687 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,8 +383,8 @@
 			baseConfigurationReference = EE093C490D613F442DB5DAE3 /* Pods-KiteFlyer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 8U4R9Q4J3X;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,8 +394,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.slowik.KiteFlyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cc0a32a0-75b9-4fa5-9c9f-068c41046322";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: *";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -389,8 +405,8 @@
 			baseConfigurationReference = 9C6C0873FEDBA660D3BA0DDE /* Pods-KiteFlyer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 8U4R9Q4J3X;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -400,8 +416,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.slowik.KiteFlyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cc0a32a0-75b9-4fa5-9c9f-068c41046322";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: *";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
