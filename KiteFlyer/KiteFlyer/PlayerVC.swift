@@ -58,8 +58,12 @@ class PlayerVC: UIViewController {
                         return
                     }
                     kitePresentationViewController.view.alpha = 0
-                    if self.isNew {
-                        self.runner.bookmarks.append(["name":self.name, "url":self.url])
+                    bookmarkCheck: if self.isNew {
+                        guard self.runner.bookmarks != nil  else {
+                            self.runner.bookmarks = [["name":self.name, "url":self.url]]
+                            break bookmarkCheck
+                        }
+                        self.runner.bookmarks!.append(["name":self.name, "url":self.url])
                     }
                     // Hold on to a strong reference to the view controller
                     //

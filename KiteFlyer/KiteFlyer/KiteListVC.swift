@@ -11,6 +11,7 @@ import AVFoundation
 import JavaScriptCore
 import MobileCoreServices
 import KiteKit
+import SCLAlertView
 
 class KiteListVC: UITableViewController {
     
@@ -23,11 +24,11 @@ class KiteListVC: UITableViewController {
 
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
-        bookmarks = runner.bookmarks
+        bookmarks = runner.bookmarks ?? []
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        bookmarks = runner.bookmarks
+        bookmarks = runner.bookmarks ?? []
         tableView.reloadData()
     }
 
@@ -48,41 +49,41 @@ class KiteListVC: UITableViewController {
     }
     
     func connectToKite() {
-        let alertController = UIAlertController(title: "Fly a Kite", message: "Name your prototype and enter a link to a zip file or dropbox folder", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let flyAction = UIAlertAction(title: "Fly!", style: .default) { (action) in
-            guard let theKite = alertController.textFields?[1] else {
+        
+        let alertView = SCLAlertView()
+        let txtName = alertView.addTextField("Name Prototype")
+        let txtURL = alertView.addTextField("Link to Kite")
+        alertView.addButton("Fly!") {
+            guard let kiteURL = txtURL.text else {
                 return
             }
-            guard let theName = alertController.textFields?[0] else {
-                return
-            }
-            guard let kiteURL = theKite.text else {
-                return
-            }
-            guard let kiteName = theName.text else {
+            guard let kiteName = txtName.text else {
                 return
             }
             self.flyKite(kiteName, kiteURL: kiteURL, saveBookmark: true)
         }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Name of Kite"
-            textField.keyboardType = .URL
-        }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Link to zip file"
-            textField.keyboardType = .URL
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(flyAction)
-        present(alertController, animated: true, completion: nil)
+        alertView.showEdit("Fly a Kite", subTitle: "Name your prototype and enter a link to a zip file or dropbox folder")
     }
     
     func addTeaser() {
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Graphik-Regular", size: 20)!,
+            kTextFont: UIFont(name: "Graphik-Regular", size: 16)!,
+            kButtonFont: UIFont(name: "Graphik-Medium", size: 16)!,
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.addButton("OK", action: {
+            
+        })
+        alertView.showInfo("Coming Soon", subTitle: "Kite saving is not currently available.")
+        /*
         let alertController = UIAlertController(title: "Coming Soon", message: "Kite saving is not currently available.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)*/
     }
     
 
@@ -98,10 +99,10 @@ class KiteListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        guard let kiteName = runner.bookmarks[indexPath.row]["name"] else {
+        guard let kiteName = runner.bookmarks![indexPath.row]["name"] else {
             return
         }
-        guard let kiteURL = runner.bookmarks[indexPath.row]["url"] else {
+        guard let kiteURL = runner.bookmarks![indexPath.row]["url"] else {
             return
         }
         
@@ -133,8 +134,11 @@ class KiteListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            runner.bookmarks.remove(at: indexPath.row)
-            bookmarks = runner.bookmarks
+            guard runner.bookmarks != nil else {
+                return
+            }
+            runner.bookmarks!.remove(at: indexPath.row)
+            bookmarks = runner.bookmarks!
             tableView.reloadData()
         }
     }
