@@ -42,6 +42,8 @@ class PlayerVC: UIViewController {
             
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
+        // test for dropbox
+        url = checkDropbox(link: url)
         
         Alamofire.download(url, to: destination).response { response in
             if response.error == nil {
@@ -117,5 +119,17 @@ class PlayerVC: UIViewController {
         }
         alertController.addAction(okAction)
         present(alertController, animated: true)
+    }
+    
+    func checkDropbox(link: String) -> String {
+        var newLink = link
+        
+        if link.lowercased().range(of:"dropbox.com") != nil {
+            print("dropbox")
+            newLink = link.substring(to: link.index(before: link.endIndex)) + "1"
+            print(newLink)
+        }
+        
+        return newLink
     }
 }
