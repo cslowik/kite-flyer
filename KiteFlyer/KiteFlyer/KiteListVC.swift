@@ -11,7 +11,7 @@ import AVFoundation
 import JavaScriptCore
 import MobileCoreServices
 import KiteKit
-import SCLAlertView
+import PMAlertController
 
 class KiteListVC: UITableViewController {
     
@@ -21,7 +21,7 @@ class KiteListVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        definesPresentationContext = true
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
         bookmarks = runner.bookmarks ?? []
@@ -50,40 +50,37 @@ class KiteListVC: UITableViewController {
     
     func connectToKite() {
         
-        let alertView = SCLAlertView()
-        let txtName = alertView.addTextField("Name Prototype")
-        let txtURL = alertView.addTextField("Link to Kite")
-        alertView.addButton("Fly!") {
-            guard let kiteURL = txtURL.text else {
-                return
-            }
-            guard let kiteName = txtName.text else {
-                return
-            }
-            self.flyKite(kiteName, kiteURL: kiteURL, saveBookmark: true)
+        let alertVC = PMAlertController(title: "Fly a Kite", description: "Name your kite prototype, and provide the link to its location (zip file or dropbox folder)", image: nil, style: .alert)
+        alertVC.gravityDismissAnimation = false
+        
+        alertVC.addTextField { (textField) in
+            textField?.placeholder = "Kite Name..."
         }
-        alertView.showEdit("Fly a Kite", subTitle: "Name your prototype and enter a link to a zip file or dropbox folder")
+        alertVC.addTextField { (textField) in
+            textField?.placeholder = "Kite URL..."
+        }
+        
+        alertVC.addAction(PMAlertAction(title: "Fly!", style: .default, action: { () in
+            guard let theName = alertVC.textFields[0].text else {
+                return
+            }
+            guard let theURL = alertVC.textFields[1].text else {
+                return
+            }
+            self.flyKite(theName, kiteURL: theURL, saveBookmark: true)
+        }))
+        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: nil))
+        
+        
+        present(alertVC, animated: true, completion: nil)
     }
     
     func addTeaser() {
-        
-        let appearance = SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: "Graphik-Regular", size: 20)!,
-            kTextFont: UIFont(name: "Graphik-Regular", size: 16)!,
-            kButtonFont: UIFont(name: "Graphik-Medium", size: 16)!,
-            showCloseButton: false
-        )
-        
-        let alertView = SCLAlertView(appearance: appearance)
-        alertView.addButton("OK", action: {
-            
-        })
-        alertView.showInfo("Coming Soon", subTitle: "Kite saving is not currently available.")
-        /*
-        let alertController = UIAlertController(title: "Coming Soon", message: "Kite saving is not currently available.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)*/
+        let alertVC = PMAlertController(title: "Coming Soon", description: "Offline mode is not currently available", image: nil, style: .alert)
+        alertVC.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+            print("Capture action OK")
+        }))
+        present(alertVC, animated: true, completion: nil)
     }
     
 
