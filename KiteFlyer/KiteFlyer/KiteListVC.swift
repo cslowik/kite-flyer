@@ -55,10 +55,10 @@ class KiteListVC: UITableViewController {
         alertVC.gravityDismissAnimation = false
         
         alertVC.addTextField { (textField) in
-            textField?.placeholder = "Kite Name..."
+            textField?.placeholder = "Enter Name..."
         }
         alertVC.addTextField { (textField) in
-            textField?.placeholder = "Kite URL..."
+            textField?.placeholder = "Enter URL..."
         }
         
         alertVC.addAction(PMAlertAction(title: "Fly!", style: .default, action: { () in
