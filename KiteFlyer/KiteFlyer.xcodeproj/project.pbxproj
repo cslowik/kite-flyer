@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83101ACD1E78B3D4002276BA /* URL-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83101ACC1E78B3D4002276BA /* URL-ext.swift */; };
 		8326F24C1E72325C00EF0343 /* KiteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8326F24B1E72325C00EF0343 /* KiteKit.framework */; };
 		8326F24D1E72325C00EF0343 /* KiteKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8326F24B1E72325C00EF0343 /* KiteKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8326F2501E72331B00EF0343 /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326F24F1E72331B00EF0343 /* PlayerVC.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		83101ACC1E78B3D4002276BA /* URL-ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL-ext.swift"; sourceTree = "<group>"; };
 		8326F24B1E72325C00EF0343 /* KiteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiteKit.framework; sourceTree = "<group>"; };
 		8326F24F1E72331B00EF0343 /* PlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
 		8348A9B61E73B8620009B313 /* Graphik-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Medium.otf"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				835084901E729E3800B7A350 /* KiteRunner.swift */,
 				83F9AA261E721F30002F3BD5 /* KiteListVC.swift */,
 				83F9AA281E7221F3002F3BD5 /* UIColor-ext.swift */,
+				83101ACC1E78B3D4002276BA /* URL-ext.swift */,
 				83CF81321E7200A300372687 /* Assets.xcassets */,
 				83CF81341E7200A300372687 /* LaunchScreen.storyboard */,
 				83CF81371E7200A300372687 /* Info.plist */,
@@ -262,6 +265,7 @@
 				835084911E729E3800B7A350 /* KiteRunner.swift in Sources */,
 				83F9AA271E721F30002F3BD5 /* KiteListVC.swift in Sources */,
 				8326F2501E72331B00EF0343 /* PlayerVC.swift in Sources */,
+				83101ACD1E78B3D4002276BA /* URL-ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

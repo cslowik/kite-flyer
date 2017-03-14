@@ -17,7 +17,7 @@ import PMAlertController
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    var url = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
+    var url: URL = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
     var name = ""
     var isNew = false
     var filename = "temp"
@@ -44,7 +44,7 @@ class PlayerVC: UIViewController {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         // test for dropbox
-        url = checkLink(url)
+        url.checkLink()
         
         Alamofire.download(url, to: destination).response { response in
             if response.error == nil {
@@ -55,7 +55,6 @@ class PlayerVC: UIViewController {
                     self.kiteDocument = KiteDocument(fileURL: self.unzipDirectory!)
                     
                     // Create a KitePresentationViewController to present the view
-                    
                     guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: self.kiteDocument!) else {
                         self.unableToLoad()
                         return
@@ -121,13 +120,4 @@ class PlayerVC: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    func checkLink(_ link: String) -> String {
-        var newLink = link
-        
-        if link.lowercased().range(of:"dropbox.com") != nil {
-            newLink = link.substring(to: link.index(before: link.endIndex)) + "1"
-        }
-        
-        return newLink
-    }
 }

@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class KiteRunner: NSObject {
     
@@ -48,4 +49,19 @@ class KiteRunner: NSObject {
         saveDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         bookmarkURLSFileURL = saveDirectory?.appendingPathComponent("bookmarks")
     }
+
+    func downloadKite(url: URL) -> URL {
+        // download the file and return file location
+        url.checkLink()
+        return fileURL
+    }
+    
+
 }
+
+
+
+
+
+
+
