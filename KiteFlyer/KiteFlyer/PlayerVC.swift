@@ -12,6 +12,7 @@ import KiteKit
 import Alamofire
 import Zip
 import SnapKit
+import PMAlertController
 
 class PlayerVC: UIViewController {
     
@@ -43,11 +44,10 @@ class PlayerVC: UIViewController {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         // test for dropbox
-        url = checkDropbox(link: url)
+        url = checkLink(url)
         
         Alamofire.download(url, to: destination).response { response in
             if response.error == nil {
-                
                 do {
                     let filePath = response.destinationURL!
                     self.unzipDirectory = try Zip.quickUnzipFile(filePath) // Unzip
@@ -86,10 +86,9 @@ class PlayerVC: UIViewController {
                 catch {
                     self.unableToLoad()
                 }
-                
-                
+            } else {
+                self.unableToLoad()
             }
-            
         }
     }
     
@@ -113,21 +112,20 @@ class PlayerVC: UIViewController {
     }
     
     func unableToLoad() {
-        let alertController = UIAlertController(title: "Error", message: "Unable to fly that kite. You sure that link is correct?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Darn!", style: .default) { _ in
-            self.exitPrototype()
-        }
-        alertController.addAction(okAction)
-        present(alertController, animated: true)
+        let alertVC = PMAlertController(title: "Error", description: "Unable to load that kite. Are you sure the link is correct?", image: nil, style: .alert)
+        alertVC.addAction(PMAlertAction(title: "Darn!", style: .default, action: {() in
+            self.dismiss(animated: true, completion: {
+                self.exitPrototype()
+            })
+        }))
+        present(alertVC, animated: true, completion: nil)
     }
     
-    func checkDropbox(link: String) -> String {
+    func checkLink(_ link: String) -> String {
         var newLink = link
         
         if link.lowercased().range(of:"dropbox.com") != nil {
-            print("dropbox")
             newLink = link.substring(to: link.index(before: link.endIndex)) + "1"
-            print(newLink)
         }
         
         return newLink

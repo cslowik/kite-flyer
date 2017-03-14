@@ -18,6 +18,7 @@ class KiteListVC: UITableViewController {
     var kiteViewController: KitePresentationViewController?
     let runner = KiteRunner.runner
     var bookmarks: [[String:String]] = [[:]]
+    var savedKites: [[String:URL]] = [[:]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,12 @@ class KiteListVC: UITableViewController {
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
         bookmarks = runner.bookmarks ?? []
+        savedKites = runner.savedKites ?? []
     }
     
     override func viewDidAppear(_ animated: Bool) {
         bookmarks = runner.bookmarks ?? []
+        savedKites = runner.savedKites ?? []
         tableView.reloadData()
     }
 
@@ -90,32 +93,56 @@ class KiteListVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookmarks.count
+        switch section {
+        case 0:
+            return bookmarks.count
+        case 1:
+            return savedKites.count
+        default:
+            return bookmarks.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        guard let kiteName = runner.bookmarks![indexPath.row]["name"] else {
-            return
-        }
-        guard let kiteURL = runner.bookmarks![indexPath.row]["url"] else {
-            return
+        
+        switch indexPath.section {
+        case 0:
+            guard let kiteName = runner.bookmarks![indexPath.row]["name"] else {
+                return
+            }
+            guard let kiteURL = runner.bookmarks![indexPath.row]["url"] else {
+                return
+            }
+            flyKite(kiteName, kiteURL: kiteURL, saveBookmark: false)
+            break
+        case 1:
+            // handle saved
+            break
+        default:
+            break
         }
         
-        flyKite(kiteName, kiteURL: kiteURL, saveBookmark: false)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell", for: indexPath)
 
-        // Configure the cell...
-        cell.textLabel?.text = bookmarks[indexPath.row]["name"]
-        cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.85)
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = bookmarks[indexPath.row]["name"]
+            break
+        case 1:
+            cell.textLabel?.text = savedKites[indexPath.row]["name"]
+        default:
+            break
+        }
         
+        cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.85)
         
         return cell
     }
