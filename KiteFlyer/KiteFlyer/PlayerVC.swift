@@ -32,7 +32,7 @@ class PlayerVC: UIViewController {
         view.backgroundColor = UIColor.blueBG
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(showMenu))
-        tap.numberOfTouchesRequired = 3
+        tap.numberOfTouchesRequired = 2
         tap.numberOfTapsRequired = 2
         
         view.addGestureRecognizer(tap)
