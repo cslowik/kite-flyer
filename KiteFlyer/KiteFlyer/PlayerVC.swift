@@ -17,7 +17,7 @@ import PMAlertController
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    var url: URL = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
+    var url: URL = URL(string: "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=0")!
     var name = ""
     var isNew = false
     var filename = "temp"
@@ -37,12 +37,6 @@ class PlayerVC: UIViewController {
         
         view.addGestureRecognizer(tap)
         
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentsURL.appendingPathComponent("\(self.filename).zip")
-            
-            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
-        }
         // test for dropbox
         url.checkLink()
         
@@ -68,18 +62,15 @@ class PlayerVC: UIViewController {
                         self.runner.bookmarks!.append(["name":self.name, "url":self.url])
                     }
                     // Hold on to a strong reference to the view controller
-                    //
                     self.kiteViewController = kitePresentationViewController
                     
                     // Add the KitePresentationView to the view hierarchy
-                    //
                     self.view.addSubview(kitePresentationViewController.view)
                     UIView.animate(withDuration: 0.5, animations: { 
                         kitePresentationViewController.view.alpha = 1
                     })
                     
                     // Start the document playback
-                    //
                     self.kiteViewController?.startPresenting()
                 }
                 catch {
@@ -120,4 +111,9 @@ class PlayerVC: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    func showFirstTimeAlert() {
+        let alertVC = PMAlertController(title: "Instructions", description: "To bring up the playback menu, double two-finger tap.", image: nil, style: .alert)
+        alertVC.addAction(PMAlertAction(title: "Got it!", style: .default))
+        present(alertVC, animated: true, completion: nil)
+    }
 }

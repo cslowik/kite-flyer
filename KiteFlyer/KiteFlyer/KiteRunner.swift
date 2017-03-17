@@ -52,11 +52,22 @@ class KiteRunner: NSObject {
 
     func downloadKite(url: URL) -> URL {
         // download the file and return file location
-        url.checkLink()
+        
+        // get download destination
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent("temp.zip")
+            
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        var checkedURL = url
+        checkedURL.checkLink()
+        
         return fileURL
     }
     
-
+    
 }
 
 
