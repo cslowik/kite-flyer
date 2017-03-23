@@ -12,12 +12,11 @@ import KiteKit
 import Alamofire
 import Zip
 import SnapKit
-import PMAlertController
 
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    var url: URL = URL(string: "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=0")!
+    var url = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
     var name = ""
     var isNew = false
     var filename = "temp"
@@ -32,16 +31,23 @@ class PlayerVC: UIViewController {
         view.backgroundColor = UIColor.blueBG
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(showMenu))
-        tap.numberOfTouchesRequired = 2
+        tap.numberOfTouchesRequired = 3
         tap.numberOfTapsRequired = 2
         
         view.addGestureRecognizer(tap)
         
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent("\(self.filename).zip")
+            
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
         // test for dropbox
-        url.checkLink()
+        url = checkDropbox(link: url)
         
         Alamofire.download(url, to: destination).response { response in
             if response.error == nil {
+                
                 do {
                     let filePath = response.destinationURL!
                     self.unzipDirectory = try Zip.quickUnzipFile(filePath) // Unzip
@@ -49,6 +55,7 @@ class PlayerVC: UIViewController {
                     self.kiteDocument = KiteDocument(fileURL: self.unzipDirectory!)
                     
                     // Create a KitePresentationViewController to present the view
+                    
                     guard let kitePresentationViewController = KitePresentationViewController(kiteDocument: self.kiteDocument!) else {
                         self.unableToLoad()
                         return
@@ -62,23 +69,27 @@ class PlayerVC: UIViewController {
                         self.runner.bookmarks!.append(["name":self.name, "url":self.url])
                     }
                     // Hold on to a strong reference to the view controller
+                    //
                     self.kiteViewController = kitePresentationViewController
                     
                     // Add the KitePresentationView to the view hierarchy
+                    //
                     self.view.addSubview(kitePresentationViewController.view)
                     UIView.animate(withDuration: 0.5, animations: { 
                         kitePresentationViewController.view.alpha = 1
                     })
                     
                     // Start the document playback
+                    //
                     self.kiteViewController?.startPresenting()
                 }
                 catch {
                     self.unableToLoad()
                 }
-            } else {
-                self.unableToLoad()
+                
+                
             }
+            
         }
     }
     
@@ -102,18 +113,23 @@ class PlayerVC: UIViewController {
     }
     
     func unableToLoad() {
-        let alertVC = PMAlertController(title: "Error", description: "Unable to load that kite. Are you sure the link is correct?", image: nil, style: .alert)
-        alertVC.addAction(PMAlertAction(title: "Darn!", style: .default, action: {() in
-            self.dismiss(animated: true, completion: {
-                self.exitPrototype()
-            })
-        }))
-        present(alertVC, animated: true, completion: nil)
+        let alertController = UIAlertController(title: "Error", message: "Unable to fly that kite. You sure that link is correct?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Darn!", style: .default) { _ in
+            self.exitPrototype()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
     
-    func showFirstTimeAlert() {
-        let alertVC = PMAlertController(title: "Instructions", description: "To bring up the playback menu, double two-finger tap.", image: nil, style: .alert)
-        alertVC.addAction(PMAlertAction(title: "Got it!", style: .default))
-        present(alertVC, animated: true, completion: nil)
+    func checkDropbox(link: String) -> String {
+        var newLink = link
+        
+        if link.lowercased().range(of:"dropbox.com") != nil {
+            print("dropbox")
+            newLink = link.substring(to: link.index(before: link.endIndex)) + "1"
+            print(newLink)
+        }
+        
+        return newLink
     }
 }
