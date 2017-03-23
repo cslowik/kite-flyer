@@ -26,13 +26,13 @@ class KiteRunner: NSObject {
         }
     }
     
-    var savedKites: [[String:URL]]? {
+    var savedKites: [[String:String]]? {
         get {
             let savedData = NSKeyedUnarchiver.unarchiveObject(withFile: (saveFileURL?.path)!)
             guard savedData != nil else {
                 return nil
             }
-            return savedData as? [[String:URL]]
+            return savedData as? [[String:String]]
         }
         set (newData) {
             NSKeyedArchiver.archiveRootObject(newData!, toFile: (saveFileURL?.path)!)

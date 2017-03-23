@@ -18,6 +18,7 @@ class KiteListVC: UITableViewController {
     var kiteViewController: KitePresentationViewController?
     let runner = KiteRunner.runner
     var bookmarks: [[String:String]] = [[:]]
+    var savedKites: [[String:String]]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class KiteListVC: UITableViewController {
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
         //editButtonItem.tintColor = UIColor.white
         bookmarks = runner.bookmarks ?? []
+        savedKites = runner.savedKites ?? []
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +92,18 @@ class KiteListVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Bookmarks"
+        case 1:
+            return "Saved Kites"
+        default:
+            return ""
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,11 +124,24 @@ class KiteListVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell", for: indexPath)
-
-        // Configure the cell...
-        cell.textLabel?.text = bookmarks[indexPath.row]["name"]
         cell.textLabel?.textColor = UIColor.white.withAlphaComponent(0.85)
         
+        switch indexPath.section {
+        case 0:
+            guard let name = runner.bookmarks?[indexPath.row]["name"] else {
+                break
+            }
+            cell.textLabel?.text = name
+            break
+        case 1:
+            guard let name = runner.savedKites?[indexPath.row]["name"] else {
+                break
+            }
+            cell.textLabel?.text = name
+            break
+        default:
+            break
+        }
         
         return cell
     }

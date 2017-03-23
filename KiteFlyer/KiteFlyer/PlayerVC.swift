@@ -16,8 +16,8 @@ import SnapKit
 class PlayerVC: UIViewController {
     
     var kiteViewController: KitePresentationViewController?
-    var url = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
-    var name = ""
+    var url: String = "https://www.dropbox.com/sh/09nzxurf7qc6o6z/AADxhh4uT-utdygjjNsHLOZSa?dl=1"
+    var name: String = ""
     var isNew = false
     var filename = "temp"
     var kiteDocument: KiteDocument?
@@ -125,9 +125,7 @@ class PlayerVC: UIViewController {
         var newLink = link
         
         if link.lowercased().range(of:"dropbox.com") != nil {
-            print("dropbox")
             newLink = link.substring(to: link.index(before: link.endIndex)) + "1"
-            print(newLink)
         }
         
         return newLink
